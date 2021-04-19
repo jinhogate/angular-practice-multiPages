@@ -1,0 +1,10 @@
+<div class="col-md-12">
+    <h2>Les détails de la transaction No: {{transaction.id}}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Amount = {{transaction.amount}}</li>
+        <li class="list-group-item">Balance = {{transaction.balance}}</li>
+        <li class="list-group-item">Label = {{transaction.label}}</li>
+        <li class="list-group-item" *ngIf="transaction.description">Description = {{transaction.description}}</li>
+        <li class="list-group-item"> Date = {{transaction.date | date:'yyyy/MM/dd hh:mm:ss'}}</li>
+    </ul>
+</div>

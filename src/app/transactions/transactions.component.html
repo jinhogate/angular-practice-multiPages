@@ -1,0 +1,26 @@
+<div class="col-md-12">
+    <h3>La liste des transactions</h3>
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr class="info">
+                <th (click)="sort('id')">Id <i class="fa fa-sort"></i></th>
+                <th (click)="sort('amount')">Amount <i class="fa fa-sort"></i></th>
+                <th (click)="sort('balance')">Balance <i class="fa fa-sort"></i></th>
+                <th (click)="sort('label')">Label <i class="fa fa-sort"></i></th>
+                <th (click)="sort('date')">Date <i class="fa fa-sort"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr 
+                *ngFor="let transaction of transactions | orderBy:key:reverse | paginate:{itemsPerPage:10,currentPage:p}" (click)="getDetail(transaction.id)">
+                <td>{{transaction.id}}</td>
+                <td>{{transaction.amount}}</td>
+                <td>{{transaction.balance}}</td>
+                <td>{{transaction.label}}</td>
+                <td>{{transaction.date | date:'yyyy/MM/dd hh:mm:ss'}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls previousLabel="Précédent" responsive="true" nextLabel="Suivant" (pageChange)="p=$event">
+    </pagination-controls>
+</div>
